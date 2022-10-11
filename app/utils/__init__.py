@@ -1,15 +1,5 @@
 # -*- coding: utf-8 -*-
 # flake8: noqa
-from .jwt import (
-    generate_jwt,
-    verify_jwt,
-    encrypt_password
-)
-
-from .middleware import (
-    jwt_authentication
-)
-
-from .config import (
-    settings
-)
+from .config import settings
+from .jwt import encrypt_password, generate_jwt, verify_jwt
+from .middleware import jwt_authentication

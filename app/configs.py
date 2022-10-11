@@ -2,7 +2,6 @@
 """
 Flask 配置文件
 """
-import os
 from app.utils import config
 
 

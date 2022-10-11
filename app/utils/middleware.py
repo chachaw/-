@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
-from flask import request, g
+from flask import g, request
+
 from .jwt import verify_jwt
+
 
 def jwt_authentication():
     """

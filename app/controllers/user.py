@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
 
+from flasgger import swag_from
+from flask import Blueprint, g, jsonify, request
+
 from app.checkers import register_params_check
 from app.services import UserService
 from app.utils import generate_jwt
-from flask import Blueprint, g, jsonify, request
-from flasgger import swag_from
+
 from .login_required import login_required
 
 bp = Blueprint(
@@ -26,10 +28,10 @@ def get_user_info():
     user, result = service.get_user(g.user_id)
     if result:
         return jsonify({
-            "id":       user.id,
+            "id": user.id,
             "username": user.username,
             "nickname": user.nickname,
-            "created":  user.created,
+            "created": user.created,
             "url": user.url,
             "mobile": user.mobile,
         }), 200
@@ -47,9 +49,9 @@ def get_user_info_by_id(userId):
     user, result = service.get_user(userId)
     if result:
         return jsonify({
-            "id":       user.id,
+            "id": user.id,
             "nickname": user.nickname,
-            "created":  user.created,
+            "created": user.created,
         }), 200
     else:
         return jsonify({'message': user}), 500
@@ -74,7 +76,7 @@ def login():
                 "nickname": user.nickname
             })
             return jsonify({
-                "jwt":      jwt,
+                "jwt": jwt,
                 "userId": user.id,
                 "username": user.username,
                 "nickname": user.nickname,

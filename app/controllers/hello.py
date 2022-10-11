@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, g, jsonify, render_template, send_from_directory
-from .login_required import login_required
 from flasgger import swag_from
+from flask import Blueprint, g, jsonify, render_template, send_from_directory
+
+from .login_required import login_required
 
 bp = Blueprint(
     'hello',

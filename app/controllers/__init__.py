@@ -1,10 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from app.controllers import (
-    user,
-    hello,
-    post
-)
+from app.controllers import hello, post, user
 
 blueprints = [
     user.bp,

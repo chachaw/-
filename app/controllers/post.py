@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
-from flask import Blueprint, jsonify, request, g
+from flasgger import swag_from
+from flask import Blueprint, g, jsonify, request
+
 from app.checkers import post_params_check, reply_post_params_check
 from app.services import PostService
-from flasgger import swag_from
+
 from .login_required import login_required
 
 bp = Blueprint(
@@ -69,6 +71,7 @@ def add_post():
             return jsonify({'message': "error"}), 500
     except KeyError:
         return jsonify({'message': "bad arguments"}), 400
+
 
 @bp.route('/api/v1/post/<int:postId>', methods=['GET'])
 @swag_from('swagger/post-detail.yml')

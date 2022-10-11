@@ -1,7 +1,9 @@
 import os
+
 from flask import Flask
-from app.controllers import blueprints
+
 from app.configs import configs
+from app.controllers import blueprints
 from app.extensions import db, swagger
 from app.utils import jwt_authentication
 

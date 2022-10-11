@@ -1,17 +1,15 @@
 # -*- coding: utf-8 -*-
 import base64
 import datetime
-import hashlib
-
-import scrypt
-from flask import current_app
 
 import jwt
+import scrypt
+from flask import current_app
 
 
 def generate_jwt(payload, expiry=None):
     """
-    
+
     :param payload: dict 载荷
     :param expiry: datetime 有效期
     :return: 生成jwt
@@ -29,6 +27,7 @@ def generate_jwt(payload, expiry=None):
     token = jwt.encode(_payload, secret, algorithm='HS256')
     return token.decode()
 
+
 def verify_jwt(token):
     """
     校验jwt
@@ -43,6 +42,7 @@ def verify_jwt(token):
         payload = None
 
     return payload
+
 
 def encrypt_password(password):
     salt = current_app.config.get('SALT', '')

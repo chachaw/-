@@ -1,2 +1,2 @@
 # flake8: noqa
-from .model import User, Post, Reply
+from .model import Post, Reply, User

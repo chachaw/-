@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+import datetime
+
+from sqlalchemy import and_
+
 from app.extensions import db
 from app.models import Post, Reply
-from sqlalchemy import and_
-import datetime
 
 
 class PostService():
@@ -43,7 +45,7 @@ class PostService():
                 {where}
             '''
             sql_content = content_base.format(limit=size, offset=(
-                page-1)*size, order=order_col, where=where_clause)
+                page - 1) * size, order=order_col, where=where_clause)
             sql_count = count_base.format(where=where_clause)
 
             content_result = db.session.execute(sql_content)

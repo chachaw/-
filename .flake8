@@ -1,2 +1,10 @@
 [flake8]
 # TODO: 补充flake8配置文件
+
+per-file-ignores = 
+    app/services/post.py:E501
+    app/services/user.py:E501 
+    tests/test_e2e.py:E501 
+    tests/test_api.py:E501
+
+exclude = .git,__pycache__,venv
